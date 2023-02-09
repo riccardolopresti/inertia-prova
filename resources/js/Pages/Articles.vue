@@ -1,6 +1,7 @@
 <script setup>
 import AppHeader from '@/Pages/AppHeader.vue';
 import { Head } from '@inertiajs/vue3';
+import { Link } from '@inertiajs/vue3';
 
 defineProps({ articles: Array })
 </script>
@@ -17,6 +18,7 @@ defineProps({ articles: Array })
                 <span>{{ article.name }}  | </span>
                 <span>{{ article.url }}</span>
             </li>
+
         </ul>
     </div>
 </template>

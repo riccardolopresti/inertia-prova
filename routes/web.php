@@ -20,20 +20,25 @@ use Inertia\Inertia;
 |
 */
 
+/*guest route*/
 Route::get('/', [PageController::class, 'index'])->name('home');
 
 Route::get('/articles', function(){
 
     $articles = Article::all();
     return Inertia::render('Articles',
-[
-    'articles' => $articles
-]);
+    [
+        'articles' => $articles
+    ]);
 });
 
+
+/*admin route*/
 Route::get('/admin', [DashboardController::class, 'index'])->name('dashboard');
 
 Route::resource('/admin/articles', ArticleController::class);
+
+Route::get('/admin/articles/{id}', [ArticleController::class, 'show'])->name('articles.show');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

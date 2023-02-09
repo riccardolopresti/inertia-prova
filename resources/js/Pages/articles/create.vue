@@ -3,7 +3,10 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head } from '@inertiajs/vue3';
 import { Link } from '@inertiajs/vue3';
 
-defineProps({ articles: Array })
+defineProps({
+    id: Number,
+    article: Object
+})
 </script>
 
 <template>
@@ -18,13 +21,9 @@ defineProps({ articles: Array })
         <div class="container mx-auto px-4">
             <div class="row">
                 <div class="col">
-                    <ul>
-                        <li v-for="article in articles" :key="article.id">
-                            <span>{{ article.name }} | </span>
-                            <span>{{ article.url }} </span>
-                            <Link class="bg-sky-300 ml-3" :href="route('articles.show', {'id': article.id})">show</Link>
-                        </li>
-                    </ul>
+                    <form >
+
+                    </form>
                 </div>
             </div>
         </div>
